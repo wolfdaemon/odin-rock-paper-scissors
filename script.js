@@ -1,39 +1,43 @@
-console.log("Welcome to TOP Rock, Paper, Scissors");
-
 //  INPUT userWeaponChoice from userPlayer from UI  
 //  INITIALIZE userWeaponChoice as an RPS (i.e., "Rock", "Paper", or "Scissors") value  
-let userWeaponChoice = prompt("Chose your weapon. (\"Rock\", \"Paper\", or \"Scissors\"\)");
-console.log(userWeaponChoice);
+let userWeaponChoice = prompt("Welcome to TOP Rock, Paper, Scissors!\n\nChoose your weapon:\n- \"Rock\"\n- \"Paper\"\n- \"Scissors\"");
+let npcWeaponChoice;
 
 //  COMPUTE userWeaponChoice from userNPC as a random RPS value  
 getComputerChoice();
 function getComputerChoice() {
-  let npcWeaponChoice = Math.floor(Math.random() * 3) + 1; // returns random integer 1-3
+  npcWeaponChoice = Math.floor(Math.random() * 3) + 1; // returns random integer 1-3
   switch (npcWeaponChoice) {
     case 1:
-      npcWeaponChoice = "Rock";
+      npcWeaponChoice = "rock";
+      break;
     case 2:
-      npcWeaponChoice = "Paper";
+      npcWeaponChoice = "paper";
+      break;
     case 3:
-      npcWeaponChoice = "Scissors";
+      npcWeaponChoice = "scissors";
+      break;
+    }
+}
+getUserChoice();
+function getUserChoice() {
+  userWeaponChoice = userWeaponChoice.toLowerCase();
 }
 
-//  INITIALIZE computerWeaponChoice as a to the variable  
-//  CASE expression OF:  
-//    CONDITION 1 | The value of userWeaponChoice and computerWeaponChoice are the same:  
-//      SEQUENCE 1:
-//        OUTPUT "DRAW"  
-//    CONDITION 2 | The value of userWeaponChoice is "Rock" and the value of computerWeaponChoice is "Paper"  
-//      SEQUENCE 2:  
-//        OUTPUT "LOSS"  
-//    CONDITION 3 | The value of userWeaponChoice is "Rock" and the value of computerWeaponChoice is "Scissors"  
-//        OUTPUT "WIN"  
-//    CONDITION 4 | The value of userWeaponChoice is "Paper" and the value of computerWeaponChoice is "Rock"  
-//        OUTPUT "WIN"  
-//    CONDITION 5 | The value of userWeaponChoice is "Paper" and the value of computerWeaponChoice is "Scissors"  
-//        OUTPUT "LOSS"  
-//    CONDITION 6 | The value of userWeaponChoice is "Scissors" and the value of computerWeaponChoice is "Rock"  
-//        OUTPUT "LOSS"  
-//    CONDITION 7 | The value of userWeaponChoice is "Scissors" and the value of computerWeaponChoice is "Paper"  
-//        OUTPUT "WIN"  
-//    ENDCASE  
+if (userWeaponChoice == npcWeaponChoice) { // TODO: Add method to values to make "Choice" values have capitalization on the first letter, possibly for output
+  console.log("This is a tie.");
+} else if ((userWeaponChoice == "Rock" || userWeaponChoice == "rock") && (npcWeaponChoice == "Paper" || npcWeaponChoice == "paper")) { // Rock vs Paper
+  console.log(npcWeaponChoice + " beats " + userWeaponChoice + "\nYOU LOSE");
+} else if ((userWeaponChoice == "Paper" || userWeaponChoice == "paper") && (npcWeaponChoice == "Rock" || npcWeaponChoice == "rock")) { // Paper vs Rock
+  console.log(userWeaponChoice + " beats " + npcWeaponChoice + "\nYOU WIN");
+} else if ((userWeaponChoice == "Rock" || userWeaponChoice == "rock") && (npcWeaponChoice == "Scissors" || npcWeaponChoice == "scissors")) { // Rock vs Scissors
+  console.log(userWeaponChoice + " beats " + npcWeaponChoice + "\nYOU WIN");
+} else if ((userWeaponChoice == "Scissors" || userWeaponChoice == "scissors") && (npcWeaponChoice == "Rock" || npcWeaponChoice == "rock")) { // Scissors vs Rock
+  console.log(npcWeaponChoice + " beats " + userWeaponChoice + "\nYOU LOSE");
+} else if ((userWeaponChoice == "Scissors" || userWeaponChoice == "scissors") && (npcWeaponChoice == "Paper" || npcWeaponChoice == "paper")) { // Scissors vs Paper
+  console.log(userWeaponChoice + " beats " + npcWeaponChoice + "\nYou win");
+} else if ((userWeaponChoice == "Paper" || userWeaponChoice == "paper") && (npcWeaponChoice == "Scissors" || npcWeaponChoice == "scissors")) { // Paper vs Scissors
+  console.log(npcWeaponChoice + " beats " + userWeaponChoice + "\nYOU LOSE");
+} else {
+  console.error("Please enter a valid value."); // User inputs invalid value
+}
