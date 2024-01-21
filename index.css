@@ -1,0 +1,24 @@
+body {
+    background-color: #2e3436;
+    color: #eeeeec;
+    padding: 2rem;
+}
+
+h1 {
+    border-bottom: solid;
+}
+
+a {
+    color: #729fcf;
+}
+
+a:visited {
+    color: #75507b;
+}
+
+footer p {
+    color: #d3d7cf;
+    border-top: dashed #babdb6;
+    margin-top: 3rem;
+    padding-top: 1rem;
+}
