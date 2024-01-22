@@ -16,6 +16,12 @@ a:visited {
     color: #75507b;
 }
 
+button {
+    background-color: #8f5902;
+    color: #eeeeec;
+    border: solid #c17d11 1px;
+}
+
 footer p {
     color: #d3d7cf;
     border-top: dashed #babdb6;

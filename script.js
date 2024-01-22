@@ -30,8 +30,6 @@ let npcWeaponChoice;
 let userPoint = 0;
 let npcPoint = 0;
 
-game();
-
 function game() { // Consists of five rounds, winner is decided based on points
 
 playRound();
