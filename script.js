@@ -32,27 +32,22 @@ let roundPlayCount = 0;
 function game() {
 
 	function roundPlay() {
-        getComputerChoice();
+		getComputerChoice();
 		deciderRound();
 		roundPlayCount++;
 
 		if (roundPlayCount === 5) {
 			deciderGame();
 		}
-
-    }
+	}
 
 	function deciderGame() {
 		if (userPoint > npcPoint) {
-			console.log("The Player won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint);
-
-			let 
-			console.log("The Player won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint);
-
+			output.textContent += "The Player won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint;
 		} else if (userPoint < npcPoint) {
-			console.log("The NPC won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint);
+			output.textContent += "The NPC won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint;
 		} else {
-			console.log("The Cat (No One) won the game.\n\n" + "Score:\n" + "\n\t- userPoint:" + userPoint + "\n\t- npcPoint: " + npcPoint);
+			output.textContent += "The Cat (No One) won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint;
 		}
 	}
     
@@ -69,56 +64,60 @@ function game() {
 				npcWeaponChoice = "scissors";
 				break;
 		}
-    }
+	}
 
 	function deciderRound() {
 		if (userWeaponChoice == npcWeaponChoice) {
-          console.log(userWeaponChoice + " is equivalent to " + npcWeaponChoice + "\nInit another round");
-        } else if (userWeaponChoice == "rock" && npcWeaponChoice == "paper") { // Rock vs Paper
-          console.log(npcWeaponChoice + " beats " + userWeaponChoice + "\nROUND LOST");
-          npcPoint++;
-        } else if (userWeaponChoice == "paper" && npcWeaponChoice == "rock") { // Paper vs Rock
-          console.log(userWeaponChoice + " beats " + npcWeaponChoice + "\nROUND WIN");
-          userPoint++;
-        } else if (userWeaponChoice == "rock" && npcWeaponChoice == "scissors") { // Rock vs Scissors
-          console.log(userWeaponChoice + " beats " + npcWeaponChoice + "\nROUND WIN");
-          userPoint++;
-        } else if (userWeaponChoice == "scissors" && npcWeaponChoice == "rock") { // Scissors vs Rock
-          console.log(npcWeaponChoice + " beats " + userWeaponChoice + "\nROUND LOST");
-          npcPoint++;
-        } else if (userWeaponChoice == "scissors" && npcWeaponChoice == "paper") { // Scissors vs Paper
-          console.log(userWeaponChoice + " beats " + npcWeaponChoice + "\nROUND WIN");
-          userPoint++;
-        } else if (userWeaponChoice == "paper" && npcWeaponChoice == "scissors") { // Paper vs Scissors
-          console.log(npcWeaponChoice + " beats " + userWeaponChoice + "\nROUND LOST");
-          npcPoint++;
-        } else {
-          console.error("Please enter a valid value."); // User inputs invalid value
-        }
+			output.textContent += userWeaponChoice + " is equivalent to " + npcWeaponChoice + "\nInit another round";
+		} else if (userWeaponChoice == "rock" && npcWeaponChoice == "paper") { // Rock vs Paper
+			output.textContent +=  npcWeaponChoice + " beats " + userWeaponChoice + "\nROUND LOST";
+			npcPoint++;
+		} else if (userWeaponChoice == "paper" && npcWeaponChoice == "rock") { // Paper vs Rock
+			output.textContent += userWeaponChoice + " beats " + npcWeaponChoice + "\nROUND WIN";
+			userPoint++;
+		} else if (userWeaponChoice == "rock" && npcWeaponChoice == "scissors") { // Rock vs Scissors
+			output.textContent += userWeaponChoice + " beats " + npcWeaponChoice + "\nROUND WIN";
+			userPoint++;
+		} else if (userWeaponChoice == "scissors" && npcWeaponChoice == "rock") { // Scissors vs Rock
+			output.textContent += npcWeaponChoice + " beats " + userWeaponChoice + "\nROUND LOST";
+			npcPoint++;
+		} else if (userWeaponChoice == "scissors" && npcWeaponChoice == "paper") { // Scissors vs Paper
+			output.textContent += userWeaponChoice + " beats " + npcWeaponChoice + "\nROUND WIN";
+			userPoint++;
+		} else if (userWeaponChoice == "paper" && npcWeaponChoice == "scissors") { // Paper vs Scissors
+			output.textContent += npcWeaponChoice + " beats " + userWeaponChoice + "\nROUND LOST";
+			npcPoint++;
+		} else {
+			output.textContent += "Please enter a valid value."; // User inputs invalid value
+		}
 	}
 
 	let userWeaponChoiceMenu = document.querySelector("#menuUserWeaponChoice");
 
-		userWeaponChoiceMenu.addEventListener('click', (event) => {
-			let target = event.target;
+	userWeaponChoiceMenu.addEventListener('click', (event) => {
+		let target = event.target;
 
-			switch(target.id) {
-				case "rock":
-					console.log("rock clicked");
-					userWeaponChoice = "rock";
-					roundPlay();
-					break;
-				case "paper":
-					console.log("paper clicked");
-					userWeaponChoice = "paper";
-					roundPlay();
-					break;
-				case "scissors":
-					console.log("scissors clicked");
-					userWeaponChoice = "scissors";
-					roundPlay();
-					break;
-			}
-		});
+		switch(target.id) {
+			case "rock":
+				output.textContent += "rock clicked";
+				userWeaponChoice = "rock";
+				roundPlay();
+				break;
+			case "paper":
+				output.textContent += "paper clicked";
+				userWeaponChoice = "paper";
+				roundPlay();
+				break;
+			case "scissors":
+				output.textContent += "scissors clicked";
+				userWeaponChoice = "scissors";
+				roundPlay();
+				break;
+		}
+	});
+
+	// TODO: Render output.textContent logs to index with line breaks | https://stackoverflow.com/questions/9980416/how-can-i-insert-new-line-carriage-returns-into-an-element-textcontent
+	let output = document.querySelector(".output");
+	
 
 }
