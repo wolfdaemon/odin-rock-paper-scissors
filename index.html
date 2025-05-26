@@ -1,0 +1,129 @@
+<!-- This is a "http/https" protocol Internet ("Web") Page Document-->
+<!DOCTYPE html>
+<!-- Language of this webpage document is "American (USA) English" -->
+<html lang="en-US">
+<!-- Metadata for this site -->
+<head>
+    <!-- Universal Character Encoding -->
+    <meta charset="UTF-8">
+    <!-- Webpage's Title -->
+    <title>Index | WBP</title>
+    <!-- Scripts (loads ASAP)
+    (cite: https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup)-->
+    <script src="script.js" defer></script>
+    <!-- Webpage's Authorship -->
+    <meta name="author" content="First &quot;NickName&quot; Last">
+    <!-- Webpage's Description: Used in search engine result pages -->
+    <meta name="description" content="This is the website's description that will show up in search results.">
+    <!-- Webpage's Favicon: The icon for this website -->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <!-- Responsive Website Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Webpage's styling; i.e. the Cascading Style Sheet (CSS3) of this page -->
+    <link rel="stylesheet" href="styles/index.css">
+    <!-- ************************** -->
+</head>
+<!-- Contents of the webpage
+(cite.: https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure)
+    Usually contains five basic sections:
+        1. Header (<header>)
+        2. Navigation Bar (<nav>)
+        3. Main Content (<main>)
+        4. Sidebar (<aside>)
+        5. Footer (<footer>)
+    The Sections are marked by comments explaining their use below.
+-->
+<body>
+    
+	<!-- Document Section: Header
+		(The strip: big heading, logo, tagline, usually the same between pages)
+	-->
+	<header>
+		<h1>Website Title (Logo)</h1>
+	</header>
+	<!-- Document Section: Navigation Bar
+		(Links to site's main sections; i.e. the main menu)
+	-->
+	<nav>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><!-- A Search form: another common non-linear way to navigate through a website. -->
+				<form>
+				<input type="search" name="search-query" placeholder="Search query">
+				<input type="submit" value="Go!">
+				</form>
+			</li>
+		</ul>
+	</nav>
+	<!-- Document Section: Main Content 
+		(Main content that's unique to this webpage)
+	-->
+	<main>
+		
+		<!-- Webpage contains an article.
+			<article> encloses a block of related content that makes sense on its own without the rest of the page
+			(e.g., a single blog post).
+			Another element I haven't used but could be here is:
+			<section> is similar to <article>, but it is more for grouping together a single part of the page that
+			constitutes one single piece of functionality (e.g., a mini map, or a set of article headlines and
+			summaries), or a theme.
+				It's considered best practice to begin each section with a heading; also note that you can break
+				<article>s up into different <section>s, or <section>s up into different <article>s,
+				depending on the context.
+			But I'll find a use for section when appropriate.
+		-->
+		<article>
+			<h2>Article heading</h2>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam lectus.
+			Set sit amet ipsum mauris. Maecenas congue ligula as quam viverra nec consectetur ant hendrerit.
+			Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.
+			Nam tincidunt congue enim, ut porta lorem lacinia consectetur.</p>
+
+			<h3>Subsection</h3>
+
+			<p>Donec ut librero sed accu vehicula ultricies a non tortor.
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.</p>
+
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+			Quia tempora dignissimos atque aut expedita, assumenda quis.
+			Modi, iusto voluptas incidunt explicabo sit aliquam reiciendis tempora sed itaque illum,
+			recusandae numquam. Pelientesque auctor nisi id magna consequat sagittis.
+			Curabitur dapibus, enim sit amet elit pharetra tincidunt feugiat nist imperdiet. </p>
+
+			<h3>Another subsection</h3>
+
+			<p>Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus.
+			Cum soclis natoque penatibus et manis dis parturient montes, nascetur ridiculus mus.
+			In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.</p>
+
+			<p>Vivamus fermentum semper porta. Nunc diam velit, adipscing ut tristique vitae sagittis vel odio.
+			Maecenas convallis ullamcorper ultricied. Curabitur ornare, ligula semper consectetur sagittis,
+			nisi diam iaculis velit, is fringille sem nunc vet mi.</p>
+		</article>
+
+		<!-- Document Section: Sidebar
+			(Peripheral info, links, quotes, ads, etc. [often inside main])
+		-->
+		<aside>
+			<h2>Related</h2>
+
+			<ul>
+				<li><a href="#">Oh I do like to be beside the seaside</a></li>
+				<li><a href="#">Oh I do like to be beside the sea</a></li>
+				<li><a href="#">Although in the North of England</a></li>
+				<li><a href="#">It never stops raining</a></li>
+				<li><a href="#">Oh well...</a></li>
+			</ul>
+		</aside>
+
+	</main>
+	<!-- Document Section: Footer
+		(Fineprint, copyright notices, or contact info. Info not critical or secondary to site, SEO stuff, etc/)
+	-->
+	<footer>
+		<p>©Copyright 2050 by nobody. All rights reversed.</p>
+	</footer>
+</body>
+</html>
