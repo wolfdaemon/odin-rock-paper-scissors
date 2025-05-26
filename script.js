@@ -2,7 +2,7 @@
  * @licstart  The following is the entire license notice for the
  *  JavaScript code in this page.
  *
- * Copyright (C) 2024  Michael "Cal" Krug
+ * Copyright (C) 2025 Michael "Cal" Krug
  *
  *
  * The JavaScript code in this page is free software: you can
