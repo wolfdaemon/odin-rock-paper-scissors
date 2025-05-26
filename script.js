@@ -53,7 +53,7 @@ console.log("The Cat (No One) won the game.\n\n" + "Score:\n" + "\n\t- userPoint
 
         //  INPUT userWeaponChoice from userPlayer from UI
         //  INITIALIZE userWeaponChoice as an RPS (i.e., "Rock", "Paper", or "Scissors") value
-        userWeaponChoice = prompt("Welcome to TOP Rock, Paper, Scissors!\n\nChoose your weapon:\n- \"Rock\"\n- \"Paper\"\n- \"Scissors\"");
+        userWeaponChoice = prompt("Welcome to Odin's Rock, Paper, Scissors!\n\nChoose your weapon:\n- \"Rock\"\n- \"Paper\"\n- \"Scissors\"");
 
         //  COMPUTE userWeaponChoice from userNPC as a random RPS value
         getComputerChoice();
