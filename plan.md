@@ -44,10 +44,25 @@ The desired output of the program is to:
 
 Algorithm here is to be copied as a comment and will probably be psuedocode:
 
-  INPUT userWeaponChoice from userPlayer from UI
-  INITIALIZE userWeaponChoice as an RPS (i.e., "Rock", "Paper", or "Scissors") value
-  COMPUTE userWeaponChoice from userNPC as a random RPS value
-  INITIALIZE computerWeaponChoice as a to the variable
-  CASE expression OF:
-    CONDITION 1 | The value of computerWeaponChoice and userWeaponChoice are the same:
-      SEQUENCE 1 |
+  INPUT userWeaponChoice from userPlayer from UI  
+  INITIALIZE userWeaponChoice as an RPS (i.e., "Rock", "Paper", or "Scissors") value  
+  COMPUTE userWeaponChoice from userNPC as a random RPS value  
+  INITIALIZE computerWeaponChoice as a to the variable  
+  CASE expression OF:  
+    CONDITION 1 | The value of userWeaponChoice and computerWeaponChoice are the same:  
+      SEQUENCE 1:
+        OUTPUT "DRAW"  
+    CONDITION 2 | The value of userWeaponChoice is "Rock" and the value of computerWeaponChoice is "Paper"  
+      SEQUENCE 2:  
+        OUTPUT "LOSS"  
+    CONDITION 3 | The value of userWeaponChoice is "Rock" and the value of computerWeaponChoice is "Scissors"  
+        OUTPUT "WIN"  
+    CONDITION 4 | The value of userWeaponChoice is "Paper" and the value of computerWeaponChoice is "Rock"  
+        OUTPUT "WIN"  
+    CONDITION 5 | The value of userWeaponChoice is "Paper" and the value of computerWeaponChoice is "Scissors"  
+        OUTPUT "LOSS"  
+    CONDITION 6 | The value of userWeaponChoice is "Scissors" and the value of computerWeaponChoice is "Rock"  
+        OUTPUT "LOSS"  
+    CONDITION 7 | The value of userWeaponChoice is "Scissors" and the value of computerWeaponChoice is "Paper"  
+        OUTPUT "WIN"  
+    ENDCASE  
