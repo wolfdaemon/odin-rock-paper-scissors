@@ -23,60 +23,46 @@
  * for the JavaScript code in this page.
  */
 
-//  INPUT userWeaponChoice from userPlayer from UI
-//  INITIALIZE userWeaponChoice as an RPS (i.e., "Rock", "Paper", or "Scissors") value
 let userWeaponChoice;
 let npcWeaponChoice;
 let userPoint = 0;
 let npcPoint = 0;
 
-function game() { // Consists of five rounds, winner is decided based on points
+function game() {
 
-playRound();
-playRound();
-playRound();
-playRound();
-playRound();
-
-// Winner decider, declarator
-if (userPoint > npcPoint) {
-console.log("The Player won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint);
-} else if (userPoint < npcPoint) {
-console.log("The NPC won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint);
-} else {
-console.log("The Cat (No One) won the game.\n\n" + "Score:\n" + "\n\t- userPoint:" + userPoint + "\n\t- npcPoint: " + npcPoint);
-}
-
-    function playRound() {
-
-        //  INPUT userWeaponChoice from userPlayer from UI
-        //  INITIALIZE userWeaponChoice as an RPS (i.e., "Rock", "Paper", or "Scissors") value
-        userWeaponChoice = prompt("Welcome to Odin's Rock, Paper, Scissors!\n\nChoose your weapon:\n- \"Rock\"\n- \"Paper\"\n- \"Scissors\"");
-
-        //  COMPUTE userWeaponChoice from userNPC as a random RPS value
+	function playRound() {
         getComputerChoice();
-        function getComputerChoice() {
-          npcWeaponChoice = Math.floor(Math.random() * 3) + 1; // returns random integer 1-3
-          switch (npcWeaponChoice) {
-            case 1:
-              npcWeaponChoice = "rock";
-              break;
-            case 2:
-              npcWeaponChoice = "paper";
-              break;
-            case 3:
-              npcWeaponChoice = "scissors";
-              break;
-            }
-        }
-        getUserChoice();
-        function getUserChoice() {
-          userWeaponChoice = userWeaponChoice.toLowerCase();
-        }
+		deciderRound();
+    }
 
-        if (userWeaponChoice == npcWeaponChoice) { // TODO: Add method to values to make "Choice" values have capitalization on the first letter, possibly for output
+	function deciderGame() {
+		if (userPoint > npcPoint) {
+		console.log("The Player won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint);
+		} else if (userPoint < npcPoint) {
+		console.log("The NPC won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint);
+		} else {
+		console.log("The Cat (No One) won the game.\n\n" + "Score:\n" + "\n\t- userPoint:" + userPoint + "\n\t- npcPoint: " + npcPoint);
+		}
+	}
+    
+	function getComputerChoice() {
+	  npcWeaponChoice = Math.floor(Math.random() * 3) + 1;
+		switch (npcWeaponChoice) {
+			case 1:
+				npcWeaponChoice = "rock";
+				break;
+			case 2:
+				npcWeaponChoice = "paper";
+				break;
+			case 3:
+				npcWeaponChoice = "scissors";
+				break;
+		}
+    }
+
+	function deciderRound() {
+		if (userWeaponChoice == npcWeaponChoice) {
           console.log(userWeaponChoice + " is equivalent to " + npcWeaponChoice + "\nInit another round");
-          playRound(); // account for ties by replaying the round
         } else if (userWeaponChoice == "rock" && npcWeaponChoice == "paper") { // Rock vs Paper
           console.log(npcWeaponChoice + " beats " + userWeaponChoice + "\nROUND LOST");
           npcPoint++;
@@ -98,5 +84,30 @@ console.log("The Cat (No One) won the game.\n\n" + "Score:\n" + "\n\t- userPoint
         } else {
           console.error("Please enter a valid value."); // User inputs invalid value
         }
-    }
+	}
+
+
+	let userWeaponChoiceMenu = document.querySelector("#menuUserWeaponChoice");
+
+		userWeaponChoiceMenu.addEventListener('click', (event) => {
+			let target = event.target;
+
+			switch(target.id) {
+				case "rock":
+					console.log("rock clicked");
+					userWeaponChoice = "rock";
+					playRound();
+					break;
+				case "paper":
+					console.log("paper clicked");
+					userWeaponChoice = "paper";
+					playRound();
+					break;
+				case "scissors":
+					console.log("scissors clicked");
+					userWeaponChoice = "scissors";
+					playRound();
+					break;
+			}
+		});
 }
