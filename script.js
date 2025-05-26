@@ -27,21 +27,32 @@ let userWeaponChoice;
 let npcWeaponChoice;
 let userPoint = 0;
 let npcPoint = 0;
+let roundPlayCount = 0;
 
 function game() {
 
-	function playRound() {
+	function roundPlay() {
         getComputerChoice();
 		deciderRound();
+		roundPlayCount++;
+
+		if (roundPlayCount === 5) {
+			deciderGame();
+		}
+
     }
 
 	function deciderGame() {
 		if (userPoint > npcPoint) {
-		console.log("The Player won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint);
+			console.log("The Player won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint);
+
+			let 
+			console.log("The Player won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint);
+
 		} else if (userPoint < npcPoint) {
-		console.log("The NPC won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint);
+			console.log("The NPC won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint);
 		} else {
-		console.log("The Cat (No One) won the game.\n\n" + "Score:\n" + "\n\t- userPoint:" + userPoint + "\n\t- npcPoint: " + npcPoint);
+			console.log("The Cat (No One) won the game.\n\n" + "Score:\n" + "\n\t- userPoint:" + userPoint + "\n\t- npcPoint: " + npcPoint);
 		}
 	}
     
@@ -86,7 +97,6 @@ function game() {
         }
 	}
 
-
 	let userWeaponChoiceMenu = document.querySelector("#menuUserWeaponChoice");
 
 		userWeaponChoiceMenu.addEventListener('click', (event) => {
@@ -96,18 +106,19 @@ function game() {
 				case "rock":
 					console.log("rock clicked");
 					userWeaponChoice = "rock";
-					playRound();
+					roundPlay();
 					break;
 				case "paper":
 					console.log("paper clicked");
 					userWeaponChoice = "paper";
-					playRound();
+					roundPlay();
 					break;
 				case "scissors":
 					console.log("scissors clicked");
 					userWeaponChoice = "scissors";
-					playRound();
+					roundPlay();
 					break;
 			}
 		});
+
 }
