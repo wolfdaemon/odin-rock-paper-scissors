@@ -28,6 +28,7 @@ let npcWeaponChoice;
 let userPoint = 0;
 let npcPoint = 0;
 let roundPlayCount = 0;
+let countPlayGame = 0;
 
 function game() {
 
@@ -38,16 +39,22 @@ function game() {
 
 		if (roundPlayCount === 5) {
 			deciderGame();
+			let buttons = document.querySelectorAll("button");
+			buttons.forEach((button) => {
+				button.disabled = true;
+			});
+			output.textContent += "\r\n\n🗘  RELOAD CURRENT PAGE 🗘";
 		}
+
 	}
 
 	function deciderGame() {
 		if (userPoint > npcPoint) {
-			output.textContent += "The Player won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint;
+			output.textContent += "\r\nThe Player won the game.\r\n\n" + "Score:\r\n" + "\r\n\t- userPoint: " + userPoint + "\r\n\t- npcPoint: " + npcPoint;
 		} else if (userPoint < npcPoint) {
-			output.textContent += "The NPC won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint;
+			output.textContent += "\r\nThe NPC won the game.\r\n\n" + "Score:\r\n" + "\r\n\t- userPoint: " + userPoint + "\r\n\t- npcPoint: " + npcPoint;
 		} else {
-			output.textContent += "The Cat (No One) won the game.\n\n" + "Score:\n" + "\n\t- userPoint: " + userPoint + "\n\t- npcPoint: " + npcPoint;
+			output.textContent += "\r\nThe Cat (No One) won the game.\r\n\n" + "Score:\r\n" + "\r\n\t- userPoint: " + userPoint + "\r\n\t- npcPoint: " + npcPoint;
 		}
 	}
     
@@ -68,27 +75,27 @@ function game() {
 
 	function deciderRound() {
 		if (userWeaponChoice == npcWeaponChoice) {
-			output.textContent += userWeaponChoice + " is equivalent to " + npcWeaponChoice + "\nInit another round";
+			output.textContent += userWeaponChoice + " is equivalent to " + npcWeaponChoice + "\r\nInit another round\r\n";
 		} else if (userWeaponChoice == "rock" && npcWeaponChoice == "paper") { // Rock vs Paper
-			output.textContent +=  npcWeaponChoice + " beats " + userWeaponChoice + "\nROUND LOST";
+			output.textContent +=  npcWeaponChoice + " beats " + userWeaponChoice + "\r\nROUND LOST\r\n";
 			npcPoint++;
 		} else if (userWeaponChoice == "paper" && npcWeaponChoice == "rock") { // Paper vs Rock
-			output.textContent += userWeaponChoice + " beats " + npcWeaponChoice + "\nROUND WIN";
+			output.textContent += userWeaponChoice + " beats " + npcWeaponChoice + "\r\nROUND WIN\r\n";
 			userPoint++;
 		} else if (userWeaponChoice == "rock" && npcWeaponChoice == "scissors") { // Rock vs Scissors
-			output.textContent += userWeaponChoice + " beats " + npcWeaponChoice + "\nROUND WIN";
+			output.textContent += userWeaponChoice + " beats " + npcWeaponChoice + "\r\nROUND WIN\r\n";
 			userPoint++;
 		} else if (userWeaponChoice == "scissors" && npcWeaponChoice == "rock") { // Scissors vs Rock
-			output.textContent += npcWeaponChoice + " beats " + userWeaponChoice + "\nROUND LOST";
+			output.textContent += npcWeaponChoice + " beats " + userWeaponChoice + "\r\nROUND LOST\r\n";
 			npcPoint++;
 		} else if (userWeaponChoice == "scissors" && npcWeaponChoice == "paper") { // Scissors vs Paper
-			output.textContent += userWeaponChoice + " beats " + npcWeaponChoice + "\nROUND WIN";
+			output.textContent += userWeaponChoice + " beats " + npcWeaponChoice + "\r\nROUND WIN\r\n";
 			userPoint++;
 		} else if (userWeaponChoice == "paper" && npcWeaponChoice == "scissors") { // Paper vs Scissors
-			output.textContent += npcWeaponChoice + " beats " + userWeaponChoice + "\nROUND LOST";
+			output.textContent += npcWeaponChoice + " beats " + userWeaponChoice + "\r\nROUND LOST\r\n";
 			npcPoint++;
 		} else {
-			output.textContent += "Please enter a valid value."; // User inputs invalid value
+			output.textContent += "\r\nPlease enter a valid value.\r\n"; // User inputs invalid value
 		}
 	}
 
@@ -99,25 +106,27 @@ function game() {
 
 		switch(target.id) {
 			case "rock":
-				output.textContent += "rock clicked";
+				output.textContent += "\r\nrock clicked\r\n";
 				userWeaponChoice = "rock";
 				roundPlay();
 				break;
 			case "paper":
-				output.textContent += "paper clicked";
+				output.textContent += "\r\npaper clicked\r\n";
 				userWeaponChoice = "paper";
 				roundPlay();
 				break;
 			case "scissors":
-				output.textContent += "scissors clicked";
+				output.textContent += "\r\nscissors clicked\r\n";
 				userWeaponChoice = "scissors";
 				roundPlay();
 				break;
 		}
 	});
 
-	// TODO: Render output.textContent logs to index with line breaks | https://stackoverflow.com/questions/9980416/how-can-i-insert-new-line-carriage-returns-into-an-element-textcontent
+	countPlayGame++;
+
 	let output = document.querySelector(".output");
-	
+
+	output.textContent += "GAME STARTED\r\n";
 
 }
